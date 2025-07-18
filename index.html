@@ -1,3 +1,8 @@
+# Color Palette Generator with Descriptive Color Names
+
+Here's the complete code with all modifications to include descriptive color names:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,38 +165,85 @@
             margin: 20px auto;
         }
         
-    @keyframes blinkWind {
-      0% {
-        transform: translateX(0) skewX(0deg);
-        opacity: 1;
-      }
-      30% {
-        transform: translateX(6px) skewX(-5deg);
-        opacity: 0.6;
-      }
-      50% {
-        transform: translateX(-6px) skewX(5deg);
-        opacity: 0.6;
-      }
-      100% {
-        transform: translateX(0) skewX(0deg);
-        opacity: 1;
-      }
-    }
-    .animate-fadeSlideIn {
-      animation: fadeSlideIn 0.8s ease-out;
-    }
-    .blink-wind {
-      animation: blinkWind 1.5s infinite ease-in-out;
-    }
-    @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+        /* New styles for color names */
+        .shadow-inner {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .bg-gray-50 {
+            background-color: #f9fafb;
+        }
+        
+        .color-name-tag {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Add to your existing CSS */
+.star {
+    position: fixed;
+    background-color: white;
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    animation: twinkle 3s infinite;
 }
 
-.blink {
-  animation: blink 1s infinite ease-in-out;
+.comet {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+    pointer-events: none;
+    animation: shoot 15s linear infinite;
 }
+
+.comet-tail {
+    position: fixed;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+    z-index: -1;
+    pointer-events: none;
+    transform-origin: left center;
+    animation: shoot 15s linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px) translateY(100px);
+        opacity: 0;
+    }
+}
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .blink {
+            animation: blink 1s infinite ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -210,14 +262,13 @@
                 <button class="nav-btn px-3 py-2 text-sm font-medium" onclick="showPage('page3')">Generate Palette</button>
                 <button class="nav-btn px-3 py-2 text-sm font-medium" onclick="showPage('page4')">Color Codes</button>
                 <button class="nav-btn px-3 py-2 text-sm font-medium" onclick="showPage('page5')">All Palettes</button>
-
-
-                <a href="public/fitur-warna.html">
-  <button class="nav-btn px-3 py-2 text-sm font-medium">colors snap</button>
-</a>
+                <a href="fida/fitur-warna.html">
+                    <button class="nav-btn px-3 py-2 text-sm font-medium">colors snap</button>
+                </a>
             </div>
         </div>
     </nav>
+
     <!-- Page 1: Intro -->
     <div id="page1" class="page active-page pt-20">
         <div class="container mx-auto px-4 py-10">
@@ -226,69 +277,69 @@
                 <p class="text-xl text-gray-600 mb-8">Extract beautiful color palettes from your images with our intuitive tool. Discover harmonious color combinations perfect for your designs.</p>
                 
                 <button onclick="showPage('page2')" class="generate-btn text-white px-8 py-3 rounded-full font-medium text-lg shadow-lg">Get Started</button>
-      <!-- Palet Warna Interaktif -->
-      <div class="space-y-6 text-left max-w-lg mx-auto">
-        <!-- Monochromatic -->
-        <div>
-          <p class="text-white font-semibold mb-2">Monochromatic</p>
-          <div class="flex space-x-2">
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #7f0000; animation-delay: 0s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #b20000; animation-delay: 0.2s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.4s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff1a1a; animation-delay: 0.6s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff4d4d; animation-delay: 0.8s;"></div>
-          </div>
-        </div>
+                
+                <!-- Interactive Color Palettes -->
+                <div class="space-y-6 text-left max-w-lg mx-auto mt-12">
+                    <!-- Monochromatic -->
+                    <div>
+                        <p class="text-white font-semibold mb-2">Monochromatic</p>
+                        <div class="flex space-x-2">
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #7f0000; animation-delay: 0s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #b20000; animation-delay: 0.2s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.4s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff1a1a; animation-delay: 0.6s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff4d4d; animation-delay: 0.8s;"></div>
+                        </div>
+                    </div>
 
-<!-- Complementary (kedip satu per satu) -->
-<div>
-  <p class="text-white font-semibold mb-2">Complementary</p>
-  <div class="flex space-x-2">
-    <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.8s;"></div>
-    <div class="w-1/5 h-8 rounded blink" style="background-color: #ff3333; animation-delay: 0.6s;"></div>
-    <div class="w-1/5 h-8 rounded blink" style="background-color: #ff6666; animation-delay: 0.4s;"></div>
-    <div class="w-1/5 h-8 rounded blink" style="background-color: #00b3b3; animation-delay: 0.2s;"></div>
-    <div class="w-1/5 h-8 rounded blink" style="background-color: #00ffff; animation-delay: 0s;"></div>
-  </div>
-</div>
-        <!-- Analogous -->
-        <div>
-          <p class="text-white font-semibold mb-2">Analogous</p>
-          <div class="flex space-x-2">
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #a1007e; animation-delay: 0s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #c1006f; animation-delay: 0.2s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.4s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff5e00; animation-delay: 0.6s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff8000; animation-delay: 0.8s;"></div>
-          </div>
-        </div>
+                    <!-- Complementary -->
+                    <div>
+                        <p class="text-white font-semibold mb-2">Complementary</p>
+                        <div class="flex space-x-2">
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.8s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff3333; animation-delay: 0.6s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff6666; animation-delay: 0.4s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #00b3b3; animation-delay: 0.2s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #00ffff; animation-delay: 0s;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Analogous -->
+                    <div>
+                        <p class="text-white font-semibold mb-2">Analogous</p>
+                        <div class="flex space-x-2">
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #a1007e; animation-delay: 0s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #c1006f; animation-delay: 0.2s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.4s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff5e00; animation-delay: 0.6s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff8000; animation-delay: 0.8s;"></div>
+                        </div>
+                    </div>
 
-        <!-- Triadic -->
-        <div>
-          <p class="text-white font-semibold mb-2">Triadic</p>
-          <div class="flex space-x-2">
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.8s"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #00cc00; animation-delay: 0.6s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #0000ff; animation-delay: 0.4s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #cc0000; animation-delay: 0.2s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #990000; animation-delay: 0s;"></div>
-          </div>
-        </div>
+                    <!-- Triadic -->
+                    <div>
+                        <p class="text-white font-semibold mb-2">Triadic</p>
+                        <div class="flex space-x-2">
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #e60000; animation-delay: 0.8s"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #00cc00; animation-delay: 0.6s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #0000ff; animation-delay: 0.4s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #cc0000; animation-delay: 0.2s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #990000; animation-delay: 0s;"></div>
+                        </div>
+                    </div>
 
-        <!-- Tetradic -->
-        <div>
-          <p class="text-white font-semibold mb-2">Tetradic</p>
-          <div class="flex space-x-2">
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #00cc00; animation-delay: 0s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #cc0000; animation-delay: 0.2s"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #9900cc; animation-delay: 0.4s"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff6600; animation-delay: 0.6s;"></div>
-            <div class="w-1/5 h-8 rounded blink" style="background-color: #800080; animation-delay: 0.8s;"></div>
-          </div>
-        </div>
-      </div>
-
-
+                    <!-- Tetradic -->
+                    <div>
+                        <p class="text-white font-semibold mb-2">Tetradic</p>
+                        <div class="flex space-x-2">
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #00cc00; animation-delay: 0s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #cc0000; animation-delay: 0.2s"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #9900cc; animation-delay: 0.4s"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #ff6600; animation-delay: 0.6s;"></div>
+                            <div class="w-1/5 h-8 rounded blink" style="background-color: #800080; animation-delay: 0.8s;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -299,23 +350,23 @@
             <h2 class="text-3xl font-bold text-center text-white mb-10">Upload Your Image</h2>
 
 
-                            <div class="mb-12 grid grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"></div>
-                        <h3 class="text-lg font-semibold mb-2">Upload Image</h3>
-                        <p class="text-gray-600">Simply upload any photo to extract its color palette.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-green-400 to-blue-500"></div>
-                        <h3 class="text-lg font-semibold mb-2">Generate Palette</h3>
-                        <p class="text-gray-600">Our algorithm analyzes colors in your image to create harmonious palettes.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-yellow-400 via-red-500 to-purple-500"></div>
-                        <h3 class="text-lg font-semibold mb-2">Export Colors</h3>
-                        <p class="text-gray-600">Get color codes in HEX, RGB, and HSL formats for easy use in your projects.</p>
-                    </div>
+            <div class="mb-12 grid grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"></div>
+                    <h3 class="text-lg font-semibold mb-2">Upload Image</h3>
+                    <p class="text-gray-600">Simply upload any photo to extract its color palette.</p>
                 </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-green-400 to-blue-500"></div>
+                    <h3 class="text-lg font-semibold mb-2">Generate Palette</h3>
+                    <p class="text-gray-600">Our algorithm analyzes colors in your image to create harmonious palettes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-full h-32 mb-4 rounded-lg bg-gradient-to-r from-yellow-400 via-red-500 to-purple-500"></div>
+                    <h3 class="text-lg font-semibold mb-2">Export Colors</h3>
+                    <p class="text-gray-600">Get color codes in HEX, RGB, and HSL formats for easy use in your projects.</p>
+                </div>
+            </div>
 
 
             <div class="max-w-2xl mx-auto">
@@ -375,6 +426,7 @@
                                         <option value="8" selected>8</option>
                                         <option value="12">12</option>
                                         <option value="16">16</option>
+                                        <option value="16">16 (Detailed)</option>
                                     </select>
                                 </div>
                                 
@@ -466,6 +518,467 @@
         let currentPalette = [];
         let savedPalettes = [];
         
+        // Color names database
+        const colorNames = [
+  // Red variants (50)
+  { name: "Imperial Red", hex: "#ED2939" },
+  { name: "Carmine", hex: "#960018" },
+  { name: "Ruby", hex: "#E0115F" },
+  { name: "Crimson", hex: "#DC143C" },
+  { name: "Scarlet", hex: "#FF2400" },
+  { name: "Burgundy", hex: "#800020" },
+  { name: "Cardinal", hex: "#C41E3A" },
+  { name: "Maroon", hex: "#800000" },
+  { name: "Ferrari Red", hex: "#FF2800" },
+  { name: "Alizarin", hex: "#E32636" },
+  { name: "Amarnath", hex: "#E52B50" },
+  { name: "Amaranth", hex: "#9F2B68" },
+  { name: "Cerise", hex: "#DE3163" },
+  { name: "Claret", hex: "#7F1734" },
+  { name: "Cordovan", hex: "#893F45" },
+  { name: "Falu Red", hex: "#801818" },
+  { name: "Fire Brick", hex: "#B22222" },
+  { name: "Garnet", hex: "#733635" },
+  { name: "Hollywood Cerise", hex: "#F400A1" },
+  { name: "Lava", hex: "#CF1020" },
+  { name: "Madder", hex: "#A50021" },
+  { name: "Pink Raspberry", hex: "#980036" },
+  { name: "Redwood", hex: "#A45A52" },
+  { name: "Rosewood", hex: "#65000B" },
+  { name: "Sanguine", hex: "#BC3F4A" },
+  { name: "Tuscan Red", hex: "#7C3030" },
+  { name: "Venetian Red", hex: "#C80815" },
+  { name: "Wine", hex: "#722F37" },
+  { name: "Cinnabar", hex: "#E44D2E" },
+  { name: "Coquelicot", hex: "#FF3800" },
+  { name: "Coral Red", hex: "#FF4040" },
+  { name: "Deep Carmine", hex: "#A9203E" },
+  { name: "Electric Crimson", hex: "#FF003F" },
+  { name: "Fire Engine Red", hex: "#CE2029" },
+  { name: "Folly", hex: "#FF004F" },
+  { name: "Harvard Crimson", hex: "#C90016" },
+  { name: "Indian Red", hex: "#CD5C5C" },
+  { name: "Jasper", hex: "#D05340" },
+  { name: "Light Coral", hex: "#F08080" },
+  { name: "Misty Rose", hex: "#FFE4E1" },
+  { name: "Persian Red", hex: "#CC3333" },
+  { name: "Pink Sherbet", hex: "#F78FA7" },
+  { name: "Radical Red", hex: "#FF355E" },
+  { name: "Raspberry", hex: "#E30B5D" },
+  { name: "Red Orange", hex: "#FF5349" },
+  { name: "Rose Vale", hex: "#AB4E52" },
+  { name: "Salmon", hex: "#FA8072" },
+  { name: "Tomato", hex: "#FF6347" },
+  { name: "Watermelon", hex: "#FC6C85" },
+  { name: "Wild Watermelon", hex: "#FD5B78" },
+
+  // Orange variants (40)
+  { name: "International Orange", hex: "#FF4F00" },
+  { name: "Persimmon", hex: "#EC5800" },
+  { name: "Tangerine", hex: "#F28500" },
+  { name: "Gamboge", hex: "#E49B0F" },
+  { name: "Golden Poppy", hex: "#FCC200" },
+  { name: "Princeton Orange", hex: "#FF8F00" },
+  { name: "Pumpkin", hex: "#FF7518" },
+  { name: "Safety Orange", hex: "#FF6700" },
+  { name: "Sunset Orange", hex: "#FD5E53" },
+  { name: "Vermilion", hex: "#E34234" },
+  { name: "Amber", hex: "#FFBF00" },
+  { name: "Apricot", hex: "#FBCEB1" },
+  { name: "Atomic Tangerine", hex: "#FF9966" },
+  { name: "Bittersweet", hex: "#FE6F5E" },
+  { name: "Burnt Orange", hex: "#CC5500" },
+  { name: "Cadmium Orange", hex: "#ED872D" },
+  { name: "Carrot Orange", hex: "#ED9121" },
+  { name: "Coral", hex: "#FF7F50" },
+  { name: "Dark Orange", hex: "#FF8C00" },
+  { name: "Deep Carrot Orange", hex: "#E9692C" },
+  { name: "Deep Saffron", hex: "#FF9933" },
+  { name: "Gamboge Orange", hex: "#996600" },
+  { name: "Giants Orange", hex: "#FE5A1D" },
+  { name: "Heat Wave", hex: "#FF7A00" },
+  { name: "Mango Tango", hex: "#FF8243" },
+  { name: "Neon Carrot", hex: "#FFA343" },
+  { name: "Orange Peel", hex: "#FF9F00" },
+  { name: "Orange Red", hex: "#FF4500" },
+  { name: "Outrageous Orange", hex: "#FF6E4A" },
+  { name: "Papaya Whip", hex: "#FFEFD5" },
+  { name: "Peach", hex: "#FFE5B4" },
+  { name: "Peach Orange", hex: "#FFCC99" },
+  { name: "Persian Orange", hex: "#D99058" },
+  { name: "Portland Orange", hex: "#FF5A36" },
+  { name: "Princeton Orange", hex: "#F58025" },
+  { name: "Pumpkin", hex: "#FF7518" },
+  { name: "Sienna", hex: "#A0522D" },
+  { name: "Sunburnt Cyclops", hex: "#FF404C" },
+  { name: "Tango Pink", hex: "#E4717A" },
+  { name: "Terra Cotta", hex: "#E2725B" },
+
+  // Yellow variants (50)
+  { name: "Lemon", hex: "#FFF700" },
+  { name: "Canary", hex: "#FFFF99" },
+  { name: "Gold", hex: "#FFD700" },
+  { name: "Saffron", hex: "#F4C430" },
+  { name: "Stil de Grain", hex: "#FADA5E" },
+  { name: "Sunflower", hex: "#FFDA03" },
+  { name: "Trombone", hex: "#D2B55B" },
+  { name: "Aureolin", hex: "#FDEE00" },
+  { name: "Banana", hex: "#FFE135" },
+  { name: "Blond", hex: "#FAF0BE" },
+  { name: "Buff", hex: "#F0DC82" },
+  { name: "Cadmium Yellow", hex: "#FFF600" },
+  { name: "Citrine", hex: "#E4D00A" },
+  { name: "Cream", hex: "#FFFDD0" },
+  { name: "Dark Goldenrod", hex: "#B8860B" },
+  { name: "Flax", hex: "#EEDC82" },
+  { name: "Gamboge", hex: "#E49B0F" },
+  { name: "Goldenrod", hex: "#DAA520" },
+  { name: "Icterine", hex: "#FCF75E" },
+  { name: "Jonquil", hex: "#F4CA16" },
+  { name: "Laser Lemon", hex: "#FFFF66" },
+  { name: "Lemon Chiffon", hex: "#FFFACD" },
+  { name: "Lemon Curry", hex: "#CCA01D" },
+  { name: "Lemon Glacier", hex: "#FDFF00" },
+  { name: "Lemon Lime", hex: "#E3FF00" },
+  { name: "Lemon Meringue", hex: "#F6EABE" },
+  { name: "Lemon Yellow", hex: "#FFF44F" },
+  { name: "Maize", hex: "#FBEC5D" },
+  { name: "Mikado Yellow", hex: "#FFC40C" },
+  { name: "Minion Yellow", hex: "#F5E050" },
+  { name: "Mustard", hex: "#FFDB58" },
+  { name: "Naples Yellow", hex: "#FADA5E" },
+  { name: "Navajo White", hex: "#FFDEAD" },
+  { name: "Old Gold", hex: "#CFB53B" },
+  { name: "Papaya Whip", hex: "#FFEFD5" },
+  { name: "Saffron", hex: "#F4C430" },
+  { name: "School Bus Yellow", hex: "#FFD800" },
+  { name: "Selective Yellow", hex: "#FFBA00" },
+  { name: "Straw", hex: "#E4D96F" },
+  { name: "Sunset", hex: "#FAD6A5" },
+  { name: "Supernova", hex: "#FFC901" },
+  { name: "Titanium Yellow", hex: "#EEE600" },
+  { name: "Unmellow Yellow", hex: "#FFFF66" },
+  { name: "Vanilla", hex: "#F3E5AB" },
+  { name: "Yellow Rose", hex: "#FFF000" },
+  { name: "Zinnwaldite", hex: "#EBC2AF" },
+  { name: "Golden Yellow", hex: "#FFDF00" },
+  { name: "Cyber Yellow", hex: "#FFD300" },
+  { name: "Safety Yellow", hex: "#EED202" },
+  { name: "Golden Poppy", hex: "#FCC200" },
+
+  // Green variants (60)
+  { name: "Emerald", hex: "#50C878" },
+  { name: "Jade", hex: "#00A86B" },
+  { name: "Malachite", hex: "#0BDA51" },
+  { name: "Smaragdine", hex: "#4FC978" },
+  { name: "Viridian", hex: "#40826D" },
+  { name: "Apple Green", hex: "#8DB600" },
+  { name: "Army Green", hex: "#4B5320" },
+  { name: "Artichoke", hex: "#8F9779" },
+  { name: "Asparagus", hex: "#87A96B" },
+  { name: "Avocado", hex: "#568203" },
+  { name: "Bright Green", hex: "#66FF00" },
+  { name: "British Racing Green", hex: "#004225" },
+  { name: "Brunswick Green", hex: "#1B4D3E" },
+  { name: "Cal Poly Green", hex: "#1E4D2B" },
+  { name: "Castleton Green", hex: "#00563F" },
+  { name: "Celadon", hex: "#ACE1AF" },
+  { name: "Chartreuse", hex: "#7FFF00" },
+  { name: "Dartmouth Green", hex: "#00703C" },
+  { name: "Dark Moss Green", hex: "#4A5D23" },
+  { name: "Dark Spring Green", hex: "#177245" },
+  { name: "Dollar Bill", hex: "#85BB65" },
+  { name: "Electric Green", hex: "#00FF00" },
+  { name: "Fern Green", hex: "#4F7942" },
+  { name: "Forest Green", hex: "#228B22" },
+  { name: "GO Green", hex: "#00AB66" },
+  { name: "Grass", hex: "#7AC488" },
+  { name: "Green Yellow", hex: "#ADFF2F" },
+  { name: "Harlequin", hex: "#3FFF00" },
+  { name: "Hunter Green", hex: "#355E3B" },
+  { name: "India Green", hex: "#138808" },
+  { name: "Islamic Green", hex: "#009000" },
+  { name: "Jungle Green", hex: "#29AB87" },
+  { name: "Kelly Green", hex: "#4CBB17" },
+  { name: "Lawn Green", hex: "#7CFC00" },
+  { name: "Light Green", hex: "#90EE90" },
+  { name: "Lime", hex: "#BFFF00" },
+  { name: "Lime Green", hex: "#32CD32" },
+  { name: "Mantis", hex: "#74C365" },
+  { name: "Mint", hex: "#3EB489" },
+  { name: "Moss Green", hex: "#8A9A5B" },
+  { name: "Myrtle", hex: "#21421E" },
+  { name: "Office Green", hex: "#008000" },
+  { name: "Olivine", hex: "#9AB973" },
+  { name: "Paris Green", hex: "#50C878" },
+  { name: "Pear", hex: "#D1E231" },
+  { name: "Pistachio", hex: "#93C572" },
+  { name: "Russian Green", hex: "#679267" },
+  { name: "Sap Green", hex: "#507D2A" },
+  { name: "Sea Green", hex: "#2E8B57" },
+  { name: "Spring Bud", hex: "#A7FC00" },
+  { name: "Spring Green", hex: "#00FF7F" },
+  { name: "Tea Green", hex: "#D0F0C0" },
+  { name: "Turtle Green", hex: "#8A9A5B" },
+  { name: "Verdigris", hex: "#43B3AE" },
+  { name: "Yellow Green", hex: "#9ACD32" },
+  { name: "Amazon", hex: "#3B7A57" },
+  { name: "Bottle Green", hex: "#006A4E" },
+  { name: "Bud Green", hex: "#7BB661" },
+  { name: "Camouflage Green", hex: "#78866B" },
+  { name: "Celtic Green", hex: "#1F6B49" },
+
+  // Blue variants (70)
+  { name: "Azure", hex: "#007FFF" },
+  { name: "Cerulean", hex: "#007BA7" },
+  { name: "Cobalt", hex: "#0047AB" },
+  { name: "Egyptian Blue", hex: "#1034A6" },
+  { name: "Sapphire", hex: "#0F52BA" },
+  { name: "Ultramarine", hex: "#120A8F" },
+  { name: "Air Force Blue", hex: "#5D8AA8" },
+  { name: "Alice Blue", hex: "#F0F8FF" },
+  { name: "Aqua", hex: "#00FFFF" },
+  { name: "Baby Blue", hex: "#89CFF0" },
+  { name: "Blue Gray", hex: "#6699CC" },
+  { name: "Blue Green", hex: "#0D98BA" },
+  { name: "Bright Blue", hex: "#0096FF" },
+  { name: "Cadet Blue", hex: "#5F9EA0" },
+  { name: "Carolina Blue", hex: "#56A0D3" },
+  { name: "Celeste", hex: "#B2FFFF" },
+  { name: "Cornflower Blue", hex: "#6495ED" },
+  { name: "Cyan", hex: "#00FFFF" },
+  { name: "Dark Blue", hex: "#00008B" },
+  { name: "Deep Sky Blue", hex: "#00BFFF" },
+  { name: "Denim", hex: "#1560BD" },
+  { name: "Dodger Blue", hex: "#1E90FF" },
+  { name: "Duke Blue", hex: "#00009C" },
+  { name: "Electric Blue", hex: "#7DF9FF" },
+  { name: "Federal Blue", hex: "#002366" },
+  { name: "Glaucous", hex: "#6082B6" },
+  { name: "Iceberg", hex: "#71A6D2" },
+  { name: "Indigo", hex: "#4B0082" },
+  { name: "International Klein Blue", hex: "#002FA7" },
+  { name: "Iris", hex: "#5A4FCF" },
+  { name: "Light Blue", hex: "#ADD8E6" },
+  { name: "Majorelle Blue", hex: "#6050DC" },
+  { name: "Maya Blue", hex: "#73C2FB" },
+  { name: "Medium Blue", hex: "#0000CD" },
+  { name: "Midnight Blue", hex: "#191970" },
+  { name: "Navy Blue", hex: "#000080" },
+  { name: "Neon Blue", hex: "#4666FF" },
+  { name: "Oxford Blue", hex: "#002147" },
+  { name: "Pacific Blue", hex: "#1CA9C9" },
+  { name: "Palatinate Blue", hex: "#273BE2" },
+  { name: "Periwinkle", hex: "#CCCCFF" },
+  { name: "Persian Blue", hex: "#1C39BB" },
+  { name: "Phthalo Blue", hex: "#000F89" },
+  { name: "Powder Blue", hex: "#B0E0E6" },
+  { name: "Prussian Blue", hex: "#003153" },
+  { name: "Robin Egg Blue", hex: "#00CCCC" },
+  { name: "Royal Blue", hex: "#4169E1" },
+  { name: "Sapphire Blue", hex: "#0067A5" },
+  { name: "Sky Blue", hex: "#87CEEB" },
+  { name: "Steel Blue", hex: "#4682B4" },
+  { name: "Teal", hex: "#008080" },
+  { name: "True Blue", hex: "#0073CF" },
+  { name: "Tufts Blue", hex: "#3E8EDE" },
+  { name: "Turquoise", hex: "#40E0D0" },
+  { name: "UCLA Blue", hex: "#536895" },
+  { name: "Ultramarine", hex: "#3F00FF" },
+  { name: "Violet Blue", hex: "#324AB2" },
+  { name: "Yale Blue", hex: "#00356B" },
+  { name: "Zaffre", hex: "#0014A8" },
+  { name: "Aero", hex: "#7CB9E8" },
+  { name: "Aquamarine", hex: "#7FFFD4" },
+  { name: "Arctic Blue", hex: "#82CAFF" },
+  { name: "Bleu de France", hex: "#318CE7" },
+  { name: "Blue Bell", hex: "#A2A2D0" },
+  { name: "Blue Jeans", hex: "#5DADEC" },
+  { name: "Blue Sapphire", hex: "#126180" },
+  { name: "Blue Yonder", hex: "#5072A7" },
+  { name: "Brandeis Blue", hex: "#0070FF" },
+  { name: "Capri", hex: "#00BFFF" },
+  { name: "Celtic Blue", hex: "#246BCE" },
+  { name: "Chefchaouen Blue", hex: "#468FE7" },
+  { name: "Cyan Azure", hex: "#4E82B4" },
+  { name: "Dark Cyan", hex: "#008B8B" },
+
+  // Purple variants (50)
+  { name: "Amethyst", hex: "#9966CC" },
+  { name: "Byzantium", hex: "#702963" },
+  { name: "Electric Purple", hex: "#BF00FF" },
+  { name: "Heliotrope", hex: "#DF73FF" },
+  { name: "Lavender", hex: "#E6E6FA" },
+  { name: "Lilac", hex: "#C8A2C8" },
+  { name: "Magenta", hex: "#FF00FF" },
+  { name: "Mauve", hex: "#E0B0FF" },
+  { name: "Orchid", hex: "#DA70D6" },
+  { name: "Purple Heart", hex: "#69359C" },
+  { name: "Tyrian Purple", hex: "#66023C" },
+  { name: "Veronica", hex: "#A020F0" },
+  { name: "Violet", hex: "#8F00FF" },
+  { name: "African Violet", hex: "#B284BE" },
+  { name: "Blue Violet", hex: "#8A2BE2" },
+  { name: "Chinese Violet", hex: "#856088" },
+  { name: "Dark Orchid", hex: "#9932CC" },
+  { name: "Dark Violet", hex: "#9400D3" },
+  { name: "Electric Violet", hex: "#8F00FF" },
+  { name: "English Violet", hex: "#563C5C" },
+  { name: "Fandango", hex: "#B53389" },
+  { name: "French Mauve", hex: "#D473D4" },
+  { name: "Fuchsia", hex: "#FF00FF" },
+  { name: "Grape", hex: "#6F2DA8" },
+  { name: "Han Purple", hex: "#5218FA" },
+  { name: "Indigo", hex: "#4B0082" },
+  { name: "Japanese Violet", hex: "#5B3256" },
+  { name: "Lavender Blush", hex: "#FFF0F5" },
+  { name: "Lavender Gray", hex: "#C4C3D0" },
+  { name: "Lavender Indigo", hex: "#9457EB" },
+  { name: "Lavender Purple", hex: "#967BB6" },
+  { name: "Lavender Rose", hex: "#FBA0E3" },
+  { name: "Lilac Luster", hex: "#AE98AA" },
+  { name: "Mardi Gras", hex: "#880085" },
+  { name: "Medium Orchid", hex: "#BA55D3" },
+  { name: "Medium Purple", hex: "#9370DB" },
+  { name: "Medium Violet Red", hex: "#C71585" },
+  { name: "Mountbatten Pink", hex: "#997A8D" },
+  { name: "Mulberry", hex: "#C54B8C" },
+  { name: "Old Lavender", hex: "#796878" },
+  { name: "Opera Mauve", hex: "#B784A7" },
+  { name: "Palatinate Purple", hex: "#682860" },
+  { name: "Pansy Purple", hex: "#78184A" },
+  { name: "Pearl", hex: "#FDEEF4" },
+  { name: "Persian Indigo", hex: "#32127A" },
+  { name: "Phlox", hex: "#DF00FF" },
+  { name: "Plum", hex: "#8E4585" },
+  { name: "Pomp and Power", hex: "#86608E" },
+  { name: "Purple Mountain Majesty", hex: "#9678B6" },
+  { name: "Purple Navy", hex: "#4E5180" },
+  { name: "Purple Pizzazz", hex: "#FE4EDA" },
+  { name: "Purple Taupe", hex: "#50404D" },
+  { name: "Razzmic Berry", hex: "#8D4E85" },
+  { name: "Red Violet", hex: "#C71585" },
+  { name: "Royal Purple", hex: "#7851A9" },
+  { name: "Russian Violet", hex: "#32174D" },
+  { name: "Slate Blue", hex: "#6A5ACD" },
+  { name: "Thistle", hex: "#D8BFD8" },
+  { name: "Twilight Lavender", hex: "#8A496B" },
+  { name: "Violet Eggplant", hex: "#991199" },
+  { name: "Wisteria", hex: "#C9A0DC" },
+
+  // Brown variants (40)
+  { name: "Auburn", hex: "#A52A2A" },
+  { name: "Beaver", hex: "#9F8170" },
+  { name: "Bistre", hex: "#3D2B1F" },
+  { name: "Bole", hex: "#79443B" },
+  { name: "Bronze", hex: "#CD7F32" },
+  { name: "Buff", hex: "#F0DC82" },
+  { name: "Burgundy", hex: "#800020" },
+  { name: "Burnt Umber", hex: "#8A3324" },
+  { name: "Camel", hex: "#C19A6B" },
+  { name: "Chamoisee", hex: "#A0785A" },
+  { name: "Chestnut", hex: "#954535" },
+  { name: "Chocolate", hex: "#7B3F00" },
+  { name: "Cocoa Brown", hex: "#D2691E" },
+  { name: "Coffee", hex: "#6F4E37" },
+  { name: "Copper", hex: "#B87333" },
+  { name: "Cordovan", hex: "#893F45" },
+  { name: "Coyote Brown", hex: "#81613C" },
+  { name: "Dark Brown", hex: "#654321" },
+  { name: "Desert Sand", hex: "#EDC9AF" },
+  { name: "Earth Yellow", hex: "#E1A95F" },
+  { name: "Ecru", hex: "#C2B280" },
+  { name: "Fallow", hex: "#C19A6B" },
+  { name: "Fawn", hex: "#E5AA70" },
+  { name: "Feldgrau", hex: "#4D5D53" },
+  { name: "Gamboge", hex: "#E49B0F" },
+  { name: "Golden Brown", hex: "#996515" },
+  { name: "Khaki", hex: "#C3B091" },
+  { name: "Liver", hex: "#674C47" },
+  { name: "Mahogany", hex: "#C04000" },
+  { name: "Ochre", hex: "#CC7722" },
+  { name: "Raw Umber", hex: "#826644" },
+  { name: "Redwood", hex: "#A45A52" },
+  { name: "Russet", hex: "#80461B" },
+  { name: "Sand", hex: "#C2B280" },
+  { name: "Sandy Brown", hex: "#F4A460" },
+  { name: "Sepia", hex: "#704214" },
+  { name: "Sienna", hex: "#A0522D" },
+  { name: "Taupe", hex: "#483C32" },
+  { name: "Tuscan Red", hex: "#7C3030" },
+  { name: "Wheat", hex: "#F5DEB3" },
+  { name: "Windsor Tan", hex: "#A75502" },
+
+  // Gray/Black/White variants (30)
+  { name: "Ash Gray", hex: "#B2BEB5" },
+  { name: "Battleship Gray", hex: "#848482" },
+  { name: "Black Coral", hex: "#54626F" },
+  { name: "Blue Gray", hex: "#6699CC" },
+  { name: "Cadet Gray", hex: "#91A3B0" },
+  { name: "Carbon Gray", hex: "#625D5D" },
+  { name: "Charcoal", hex: "#36454F" },
+  { name: "Cinereous", hex: "#98817B" },
+  { name: "Cool Gray", hex: "#8C92AC" },
+  { name: "Dark Liver", hex: "#534B4F" },
+  { name: "Davy's Gray", hex: "#555555" },
+  { name: "Eerie Black", hex: "#1B1B1B" },
+  { name: "Gainsboro", hex: "#DCDCDC" },
+  { name: "Gunmetal", hex: "#2A3439" },
+  { name: "Jet", hex: "#343434" },
+  { name: "Light Gray", hex: "#D3D3D3" },
+  { name: "Manatee", hex: "#979AAA" },
+  { name: "Medium Gray", hex: "#BEBEBE" },
+  { name: "Nickel", hex: "#727472" },
+  { name: "Onyx", hex: "#353839" },
+  { name: "Platinum", hex: "#E5E4E2" },
+  { name: "Quick Silver", hex: "#A6A6A6" },
+  { name: "Rhythm", hex: "#777696" },
+  { name: "Silver", hex: "#C0C0C0" },
+  { name: "Slate Gray", hex: "#708090" },
+  { name: "Smoke", hex: "#738276" },
+  { name: "Stormcloud", hex: "#4F666A" },
+  { name: "Taupe Gray", hex: "#8B8589" },
+  { name: "Timberwolf", hex: "#DBD7D2" },
+  { name: "White Smoke", hex: "#F5F5F5" },
+  { name: "Xanadu", hex: "#738678" }
+];
+        
+        // Function to find closest color name
+        function getClosestColorName(hexColor) {
+            if (!hexColor || !hexColor.startsWith('#') || hexColor.length !== 7) {
+                return "Custom";
+            }
+            
+            // Convert HEX to RGB
+            const r = parseInt(hexColor.substr(1, 2), 16);
+            const g = parseInt(hexColor.substr(3, 2), 16);
+            const b = parseInt(hexColor.substr(5, 2), 16);
+            
+            let closestColor = null;
+            let minDistance = Infinity;
+            
+            colorNames.forEach(color => {
+                // Convert reference color to RGB
+                const refR = parseInt(color.hex.substr(1, 2), 16);
+                const refG = parseInt(color.hex.substr(3, 2), 16);
+                const refB = parseInt(color.hex.substr(5, 2), 16);
+                
+                // Calculate color distance (Euclidean)
+                const distance = Math.sqrt(
+                    Math.pow(r - refR, 2) + 
+                    Math.pow(g - refG, 2) + 
+                    Math.pow(b - refB, 2)
+                );
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestColor = color.name;
+                }
+            });
+            
+            return closestColor || "Custom";
+        }
+        
         // Page navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
@@ -508,7 +1021,7 @@
                 }
                 
                 // Validate file size (max 5MB)
-                if (file.size > 5 * 1024 * 1024) {
+                if (file.size > 40 * 1024 * 1024) {
                     alert('Image size should be less than 5MB');
                     return;
                 }
@@ -636,8 +1149,34 @@
                 generateColorBars(currentPalette);
                 generateColorCodes(currentPalette);
                 
-                // Save the palette
-                savePalette(currentPalette, img.src);
+
+               function compressPalette(palette) {
+    return {
+        i: palette.id, // ID
+        c: palette.colors.map(c => c.replace('#', '')), // Warna tanpa #
+        m: palette.image.substring(0, 30), // Potong URL gambar
+        d: palette.date.substring(0, 10) // Hanya tanggal (YYYY-MM-DD)
+    };
+}
+
+function savePalette(colors, imageSrc) {
+    const compressed = compressPalette({
+        id: Date.now(),
+        colors: colors,
+        image: imageSrc,
+        date: new Date().toISOString()
+    });
+
+    savedPalettes.unshift(compressed);
+
+    try {
+        localStorage.setItem('colorPalettes', JSON.stringify(savedPalettes));
+    } catch (e) {
+        console.error("Storage penuh, menghapus palette lama...");
+        savedPalettes.splice(-3); // Hapus 3 palette terlama
+        localStorage.setItem('colorPalettes', JSON.stringify(savedPalettes));
+    }
+}
                 
                 // Show results
                 palettePreview.classList.remove('hidden');
@@ -696,69 +1235,143 @@
             container.innerHTML = '';
             
             colors.forEach(color => {
+                const colorName = getClosestColorName(color);
+                
                 const barContainer = document.createElement('div');
-                barContainer.className = 'flex items-center';
+                barContainer.className = 'flex items-center mb-4 p-3 bg-gray-50 rounded-lg';
                 
-                const bar = document.createElement('div');
-                bar.className = 'palette-bar w-full h-8 rounded mr-3';
-                bar.style.backgroundColor = color;
-                bar.onclick = () => copyToClipboard(color);
+                // Color info container (name and hex)
+                const colorInfoContainer = document.createElement('div');
+                colorInfoContainer.className = 'w-32 mr-4';
                 
-                const code = document.createElement('span');
-                code.className = 'text-sm text-gray-600';
-                code.textContent = color;
-                code.onclick = () => copyToClipboard(color);
+                // Color name
+                const nameElement = document.createElement('div');
+                nameElement.className = 'text-sm font-semibold text-gray-800';
+                nameElement.textContent = colorName;
                 
-                barContainer.appendChild(bar);
-                barContainer.appendChild(code);
+                // Hex code
+                const hexElement = document.createElement('div');
+                hexElement.className = 'text-xs text-gray-500 mb-1';
+                hexElement.textContent = color;
+                
+                // Copy button
+                const copyButton = document.createElement('button');
+                copyButton.className = 'text-xs text-indigo-600 hover:text-indigo-800';
+                copyButton.textContent = 'Copy';
+                copyButton.onclick = () => {
+                    copyToClipboard(color);
+                    showCopyNotification();
+                };
+                
+                // Assemble color info
+                colorInfoContainer.appendChild(nameElement);
+                colorInfoContainer.appendChild(hexElement);
+                colorInfoContainer.appendChild(copyButton);
+                
+                // Color bar
+                const colorBar = document.createElement('div');
+                colorBar.className = 'flex-1 h-10 rounded-lg shadow-inner relative overflow-hidden';
+                
+                // Main color
+                const mainColor = document.createElement('div');
+                mainColor.className = 'absolute inset-0';
+                mainColor.style.backgroundColor = color;
+                
+                // Hover effect
+                const hoverEffect = document.createElement('div');
+                hoverEffect.className = 'absolute inset-0 bg-black opacity-0 hover:opacity-10 transition-opacity duration-200';
+                // Assemble color bar
+                colorBar.appendChild(mainColor);
+                colorBar.appendChild(hoverEffect);
+                
+                // Combine all elements
+                barContainer.appendChild(colorInfoContainer);
+                barContainer.appendChild(colorBar);
+                
+                // Add to container
                 container.appendChild(barContainer);
             });
         }
-        
+
         // Generate color codes for page 4
         function generateColorCodes(colors) {
             const container = document.getElementById('colorCodesGrid');
             container.innerHTML = '';
             
             colors.forEach(color => {
-                const colorBox = document.createElement('div');
-                colorBox.className = 'bg-white p-4 rounded-lg shadow-sm';
+                const colorName = getClosestColorName(color);
+                const rgb = hexToRgb(color);
+                const hsl = rgbToHsl(color);
                 
+                const colorBox = document.createElement('div');
+                colorBox.className = 'bg-white p-4 rounded-lg shadow-sm border border-gray-100';
+                
+                // Color name header
+                const nameHeader = document.createElement('h4');
+                nameHeader.className = 'text-lg font-semibold text-center mb-2';
+                nameHeader.textContent = colorName;
+                
+                // Color display
                 const colorDisplay = document.createElement('div');
-                colorDisplay.className = 'h-20 rounded mb-2 relative color-box';
+                colorDisplay.className = 'h-24 rounded-lg mb-3 relative color-box';
                 colorDisplay.style.backgroundColor = color;
                 
+                // Color code overlay
                 const colorCode = document.createElement('div');
-                colorCode.className = 'color-code text-xs text-center p-1 rounded-b absolute bottom-0 left-0 right-0';
-                colorCode.textContent = color;
+                colorCode.className = 'color-code text-xs text-center p-2 rounded-b absolute bottom-0 left-0 right-0';
+                colorCode.innerHTML = `<div class="font-bold">${color}</div>`;
                 
                 colorDisplay.appendChild(colorCode);
                 
-                const hexCode = document.createElement('div');
-                hexCode.className = 'text-xs font-mono mb-1 cursor-pointer';
-                hexCode.textContent = `HEX: ${color}`;
-                hexCode.onclick = function() { copyToClipboard(color); };
+                // Color details
+                const detailsContainer = document.createElement('div');
+                detailsContainer.className = 'space-y-1';
                 
-                const rgbCode = document.createElement('div');
-                rgbCode.className = 'text-xs font-mono mb-1 cursor-pointer';
-                const rgb = hexToRgb(color);
-                rgbCode.textContent = `RGB: ${rgb}`;
-                rgbCode.onclick = function() { copyToClipboard(rgb); };
+                // HEX
+                const hexDetail = createColorDetail('HEX', color, color);
                 
-                const hslCode = document.createElement('div');
-                hslCode.className = 'text-xs font-mono cursor-pointer';
-                const hsl = rgbToHsl(color);
-                hslCode.textContent = `HSL: ${hsl}`;
-                hslCode.onclick = function() { copyToClipboard(hsl); };
+                // RGB
+                const rgbDetail = createColorDetail('RGB', rgb, rgb);
                 
+                // HSL
+                const hslDetail = createColorDetail('HSL', hsl, hsl);
+                
+                // Combine all elements
+                detailsContainer.appendChild(hexDetail);
+                detailsContainer.appendChild(rgbDetail);
+                detailsContainer.appendChild(hslDetail);
+                
+                colorBox.appendChild(nameHeader);
                 colorBox.appendChild(colorDisplay);
-                colorBox.appendChild(hexCode);
-                colorBox.appendChild(rgbCode);
-                colorBox.appendChild(hslCode);
+                colorBox.appendChild(detailsContainer);
+                
                 container.appendChild(colorBox);
             });
         }
-        
+
+        // Helper function to create color detail row
+        function createColorDetail(label, value, copyValue) {
+            const container = document.createElement('div');
+            container.className = 'flex justify-between items-center text-sm';
+            
+            const labelSpan = document.createElement('span');
+            labelSpan.className = 'font-medium text-gray-600';
+            labelSpan.textContent = label + ':';
+            
+            const valueSpan = document.createElement('span');
+            valueSpan.className = 'font-mono cursor-pointer hover:text-indigo-600';
+            valueSpan.textContent = value;
+            valueSpan.onclick = () => {
+                copyToClipboard(copyValue);
+                showCopyNotification();
+            };
+            
+            container.appendChild(labelSpan);
+            container.appendChild(valueSpan);
+            
+            return container;
+        }
+
         // Helper function: HEX to RGB string
         function hexToRgb(hex) {
             // Remove # if present
@@ -771,7 +1384,7 @@
             
             return `rgb(${r}, ${g}, ${b})`;
         }
-        
+
         // Helper function: HEX to HSL string
         function rgbToHsl(hex) {
             // Convert HEX to RGB first
@@ -779,12 +1392,11 @@
             let r = parseInt(hex.substring(0, 2), 16) / 255;
             let g = parseInt(hex.substring(2, 4), 16) / 255;
             let b = parseInt(hex.substring(4, 6), 16) / 255;
-            
-            // Then convert RGB to HSL
+
             let max = Math.max(r, g, b);
             let min = Math.min(r, g, b);
             let h, s, l = (max + min) / 2;
-            
+
             if (max === min) {
                 h = s = 0; // achromatic
             } else {
@@ -804,7 +1416,7 @@
             
             return `hsl(${h}, ${s}%, ${l}%)`;
         }
-        
+
         // Copy to clipboard functionality
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(function() {
@@ -825,13 +1437,13 @@
                 document.body.removeChild(textarea);
             });
         }
-        
+
         function showCopyNotification() {
             const notification = document.getElementById('copyNotification');
             notification.classList.add('show');
             setTimeout(() => notification.classList.remove('show'), 2000);
         }
-        
+
         // Save palette to history
         function savePalette(colors, imageSrc) {
             const palette = {
@@ -848,7 +1460,7 @@
             // Store in localStorage
             localStorage.setItem('colorPalettes', JSON.stringify(savedPalettes));
         }
-        
+
         // Update saved palettes display
         function updateSavedPalettesDisplay() {
             const container = document.getElementById('savedPalettesContainer');
@@ -861,9 +1473,9 @@
             
             savedPalettes.forEach(palette => {
                 const paletteCard = document.createElement('div');
-                paletteCard.className = 'bg-white rounded-xl shadow-md overflow-hidden';
+                paletteCard.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow';
                 
-                // Image container with color bar
+                // Image container
                 const imageContainer = document.createElement('div');
                 imageContainer.className = 'h-48 relative';
                 
@@ -872,10 +1484,11 @@
                 img.alt = palette.name;
                 img.className = 'w-full h-full object-cover';
                 
+                // Color bar
                 const colorBar = document.createElement('div');
                 colorBar.className = 'absolute bottom-0 left-0 right-0 h-8 flex';
                 
-                // Display up to 5 colors in the bar
+                // Display up to 5 colors
                 palette.colors.slice(0, 5).forEach(color => {
                     const colorDiv = document.createElement('div');
                     colorDiv.className = 'flex-1';
@@ -891,8 +1504,12 @@
                 cardBody.className = 'p-4';
                 
                 const title = document.createElement('h3');
-                title.className = 'text-lg font-medium text-gray-800 mb-2';
+                title.className = 'text-lg font-medium text-gray-800 mb-2 truncate';
                 title.textContent = palette.name;
+                
+                const dateInfo = document.createElement('p');
+                dateInfo.className = 'text-xs text-gray-500 mb-2';
+                dateInfo.textContent = palette.date;
                 
                 const footer = document.createElement('div');
                 footer.className = 'flex justify-between items-center';
@@ -902,7 +1519,7 @@
                 colorCount.textContent = `${palette.colors.length} colors`;
                 
                 const viewBtn = document.createElement('button');
-                viewBtn.className = 'text-indigo-600 text-sm font-medium';
+                viewBtn.className = 'text-indigo-600 text-sm font-medium hover:text-indigo-800';
                 viewBtn.textContent = 'View Details';
                 viewBtn.onclick = () => viewSavedPalette(palette.id);
                 
@@ -910,6 +1527,7 @@
                 footer.appendChild(viewBtn);
                 
                 cardBody.appendChild(title);
+                cardBody.appendChild(dateInfo);
                 cardBody.appendChild(footer);
                 
                 paletteCard.appendChild(imageContainer);
@@ -918,7 +1536,7 @@
                 container.appendChild(paletteCard);
             });
         }
-        
+
         // View saved palette details
         function viewSavedPalette(paletteId) {
             const palette = savedPalettes.find(p => p.id === paletteId);
@@ -935,7 +1553,7 @@
             // Go to the color codes page
             showPage('page4');
         }
-        
+
         // Download palette
         function downloadPalette() {
             if (currentPalette.length === 0) {
@@ -945,10 +1563,17 @@
             
             // Create JSON data
             const paletteData = {
-                colors: currentPalette,
-                rgb: currentPalette.map(hexToRgb),
-                hsl: currentPalette.map(rgbToHsl),
-                date: new Date().toLocaleString()
+                name: `Color Palette ${new Date().toLocaleString()}`,
+                colors: currentPalette.map(color => {
+                    return {
+                        name: getClosestColorName(color),
+                        hex: color,
+                        rgb: hexToRgb(color),
+                        hsl: rgbToHsl(color)
+                    };
+                }),
+                date: new Date().toLocaleString(),
+                image: finalImage.src
             };
             
             // Create download link
@@ -962,7 +1587,7 @@
             link.click();
             document.body.removeChild(link);
         }
-        
+
         // Load saved palettes from localStorage
         function loadSavedPalettes() {
             const saved = localStorage.getItem('colorPalettes');
@@ -971,7 +1596,7 @@
                 updateSavedPalettesDisplay();
             }
         }
-        
+
         // Initialize the app
         window.addEventListener('load', function() {
             loadSavedPalettes();

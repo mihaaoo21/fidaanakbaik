@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "color-namer": "^1.4.0"
   }
 }
